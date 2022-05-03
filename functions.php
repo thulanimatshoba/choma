@@ -139,6 +139,7 @@ add_action( 'widgets_init', 'choma_widgets_init' );
  */
 function choma_scripts() {
 	wp_enqueue_style( 'choma-style', get_stylesheet_uri(), array(), CHOMA_VERSION );
+    wp_enqueue_style('choma-uikit', get_template_directory_uri() . '/uikit.css', [], CHOMA_VERSION);
 	wp_style_add_data( 'choma-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'choma-navigation', get_template_directory_uri() . '/js/navigation.js', array(), CHOMA_VERSION, true );
