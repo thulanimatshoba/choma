@@ -27,7 +27,7 @@
 
     <div class="top-header">
         <div class="uk-container">
-            <div class="socials">
+            <div class="socials uk-float-right">
                 <?php //get_template_part('inc/social', 'sharing'); ?>
                 <?php get_template_part('partials/menus/social', 'menu'); ?>
             </div>
@@ -55,17 +55,58 @@
             </div><!-- .site-branding -->
 
             <div class="uk-navbar-right">
-                <nav id="site-navigation" class="main-navigation">
-                    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'choma' ); ?></button>
+                <div class="search">
                     <?php
-                    wp_nav_menu(
-                        array(
-                            'theme_location' => 'header',
-                            'menu_id'        => 'primary-menu',
-                        )
-                    );
-                    ?>
-                </nav><!-- #site-navigation -->
+                    if (!is_user_logged_in()) : ?>
+                        <a href="#"><i class="fa fa-user" uk-toggle="target: #ninjah-login-modal"></i></a>
+                    <?php else :
+                    $current_user = wp_get_current_user(); ?>
+                    <a class="uk-float-left" >
+                        <?php
+                        if (!$current_user->first_name) {
+                            echo $current_user->user_nicename;
+                        } else {
+                            echo $current_user->user_firstname;
+                        }
+                        endif; ?>
+                    </a>
+
+                    <div uk-dropdown="animation: uk-animation-slide-top-small; duration: 1000">
+                        <ul class="uk-nav uk-dropdown-nav">
+                            <li><a href="#">Item</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="#">Item</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="<?php echo wp_logout_url( get_permalink() ); ?>">Logout</a></li>
+                        </ul>
+                    </div>
+
+                    <a class="" href="#search-modal" uk-search-icon uk-toggle></a>
+                    <?php get_template_part('template-parts/search/search'); ?>
+                </div>
             </div>
+
+            <div class="uk-navbar-center">
+            <nav id="site-navigation" class="main-navigation">
+                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'choma' ); ?></button>
+                <?php
+                wp_nav_menu(
+                    [
+                        'theme_location' => 'header',
+                        'menu_id'        => 'primary-menu',
+                    ]
+                );
+                ?>
+            </nav><!-- #site-navigation -->
+            </div>
+
     </div>
+        <div class="mcborder">
+            <span class="red-bg"></span>
+            <span class="pink-bg two"></span>
+            <span class="yellow-bg"></span>
+            <span class="green-bg"></span>
+            <span class="purple-bg three"></span>
+            <span class="blue-bg two"></span>
+        </div>
 	</header><!-- #masthead -->
