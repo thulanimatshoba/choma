@@ -13,6 +13,23 @@
 
 	<footer id="colophon" class="site-footer">
         <div class="uk-container">
+            <div class="footer-top uk-margin-medium-top uk-margin-small-bottom uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m" uk-grid>
+                <div class="uk-animation-scale-up uk-margin-bottom uk-padding-remove-left">
+                   aaaa <?php if (!dynamic_sidebar('footer-info')): endif; ?>
+                </div>
+                <div class="uk-animation-scale-up">
+                   ssss <?php if (!dynamic_sidebar('footer-nav')): endif; ?>
+                </div>
+                <div class="uk-animation-scale-up">
+                   dddd <?php if (!dynamic_sidebar('footer-contacts')): endif; ?>
+                </div>
+                <div class="uk-animation-scale-up">
+                   zzzz <?php if (!dynamic_sidebar('footer-newsletter')): endif; ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="uk-container">
             <div class="site-info">
                 <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'choma' ) ); ?>">
                     <?php

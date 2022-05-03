@@ -101,6 +101,12 @@ function choma_setup() {
 			'flex-height' => true,
 		)
 	);
+
+    /**
+     * Yoast Breadcrumbs
+     */
+    add_theme_support('yoast-seo-breadcrumbs');
+
 }
 add_action( 'after_setup_theme', 'choma_setup' );
 
@@ -122,8 +128,20 @@ add_action( 'after_setup_theme', 'choma_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function choma_widgets_init() {
+    register_sidebar(
+        [
+            'name'          => esc_html__( 'Home Page 1170x90 Ad', 'choma' ),
+            'id'            => 'home-ad1',
+            'description'   => esc_html__( 'Add widgets here.', 'choma' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        ]
+    );
+
 	register_sidebar(
-		array(
+		[
 			'name'          => esc_html__( 'Sidebar', 'choma' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'choma' ),
@@ -131,8 +149,56 @@ function choma_widgets_init() {
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
-		)
+		]
 	);
+
+    register_sidebar(
+        [
+            'name'          => esc_html__( 'Footer Info', 'choma' ),
+            'id'            => 'footer-info',
+            'description'   => esc_html__( 'Add widgets here.', 'choma' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        ]
+    );
+
+    register_sidebar(
+        [
+            'name'          => esc_html__( 'Footer Navigation', 'choma' ),
+            'id'            => 'footer-nav',
+            'description'   => esc_html__( 'Add widgets here.', 'choma' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        ]
+    );
+
+    register_sidebar(
+        [
+            'name'          => esc_html__( 'Footer Contacts', 'choma' ),
+            'id'            => 'footer-contacts',
+            'description'   => esc_html__( 'Add widgets here.', 'choma' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        ]
+    );
+
+    register_sidebar(
+        [
+            'name'          => esc_html__( 'Footer Newsletter', 'choma' ),
+            'id'            => 'footer-newsletter',
+            'description'   => esc_html__( 'Add widgets here.', 'choma' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        ]
+    );
 }
 add_action( 'widgets_init', 'choma_widgets_init' );
 
@@ -187,9 +253,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /**
  * Load WooCommerce compatibility file.
  */
-if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
-}
+//if ( class_exists( 'WooCommerce' ) ) {
+//	require get_template_directory() . '/inc/woocommerce.php';
+//}
 
 
 
