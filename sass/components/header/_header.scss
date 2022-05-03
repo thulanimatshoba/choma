@@ -1,0 +1,12 @@
+.top-header {
+  border-bottom: 1px solid $color_light_grey;
+}
+
+header#masthead {
+  border-bottom: 1px solid $color_light_grey;
+  .site-branding {
+    a {
+      width: 150px;
+    }
+  }
+}

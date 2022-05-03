@@ -60,12 +60,22 @@
 	a {
 		display: block;
 		text-decoration: none;
+		text-transform: uppercase;
+		padding: 22px 10px;
+
+		&:hover {
+			color: $color_primary;
+			text-decoration: none;
+			border-bottom: 2px solid;
+		}
 	}
 
 	.current_page_item > a,
 	.current-menu-item > a,
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
+		color: $color_primary;
+		border-bottom: 2px solid;
 	}
 }
 

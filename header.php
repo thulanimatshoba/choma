@@ -25,35 +25,47 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'choma' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$choma_description = get_bloginfo( 'description', 'display' );
-			if ( $choma_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $choma_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+    <div class="top-header">
+        <div class="uk-container">
+            <div class="socials">
+                <?php //get_template_part('inc/social', 'sharing'); ?>
+                <?php get_template_part('partials/menus/social', 'menu'); ?>
+            </div>
+        </div>
+    </div>
+	<header id="masthead" class="site-header" uk-sticky="top: 100; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up" style="background-image: url(<?php header_image(); ?>); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div class="uk-container uk-navbar">
+            <div class="site-branding uk-navbar-left">
+                <?php
+                the_custom_logo();
+                if ( is_front_page() && is_home() ) :
+                    ?>
+                    <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                    <?php
+                else :
+                    ?>
+                    <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+                    <?php
+                endif;
+                $choma_description = get_bloginfo( 'description', 'display' );
+                if ( $choma_description || is_customize_preview() ) :
+                    ?>
+                    <p class="site-description"><?php echo $choma_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+                <?php endif; ?>
+            </div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'choma' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+            <div class="uk-navbar-right">
+                <nav id="site-navigation" class="main-navigation">
+                    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'choma' ); ?></button>
+                    <?php
+                    wp_nav_menu(
+                        array(
+                            'theme_location' => 'header',
+                            'menu_id'        => 'primary-menu',
+                        )
+                    );
+                    ?>
+                </nav><!-- #site-navigation -->
+            </div>
+    </div>
 	</header><!-- #masthead -->

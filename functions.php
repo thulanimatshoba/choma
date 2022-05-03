@@ -49,7 +49,9 @@ function choma_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'choma' ),
+			'header' => esc_html__( 'Primary Menu', 'choma' ),
+            'social' => esc_html__('Social Menu', 'choma'),
+            'offcanvas' => esc_html__('Off Canvas Menu', 'choma'),
 		)
 	);
 
