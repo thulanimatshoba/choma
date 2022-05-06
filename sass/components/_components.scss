@@ -33,3 +33,35 @@
 /* Header
 --------------------------------------------- */
 @import "header/header";
+
+/* Header Lines */
+.choma-border {
+  > span {
+    display: block;
+    float: left;
+    width: 15%;
+    height: 7px;
+  }
+
+  .red-bg {
+    background-color: #ef456f;
+  }
+  .pink-bg {
+    background-color: #fc8294;
+    width:20%;
+  }
+  .yellow-bg {
+    background-color: #fbc75b;
+  }
+  .green-bg {
+    background-color: #5fd37d;
+  }
+  .purple-bg {
+    background-color: #8760ac;
+    width: 15%;
+  }
+  .blue-bg {
+    background-color: #39a0be;
+    width:20%;
+  }
+}

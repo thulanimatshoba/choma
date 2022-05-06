@@ -5,14 +5,14 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	const siteNavigation = document.getElementById( 'site-navigation' );
+	const siteNavigation = document.getElementById( 'masthead' );
 
 	// Return early if the navigation doesn't exist.
 	if ( ! siteNavigation ) {
 		return;
 	}
 
-	const button = siteNavigation.getElementsByTagName( 'button' )[ 0 ];
+	const button = siteNavigation.getElementsByTagName( 'i' )[ 0 ];
 
 	// Return early if the button doesn't exist.
 	if ( 'undefined' === typeof button ) {

@@ -19,7 +19,8 @@
           vertical-align: middle;
           -webkit-font-smoothing: antialiased;
           background-color: transparent;
-          color: $color_primary;
+          color: $color_social_icons;
+          transition: all 400ms ease-in-out;
         }
 
         &[href*="facebook.com"]::before {
@@ -63,6 +64,10 @@
         }
 
         &[href*="skype.com"]::before {
+          content: '\f17e';
+        }
+
+        &[href*="wa.me"]::before {
           content: '\f17e';
         }
 

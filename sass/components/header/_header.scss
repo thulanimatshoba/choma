@@ -10,8 +10,23 @@ header#masthead {
 
       img.custom-logo {
         max-width: 140px;
-        padding: 5px;
+        padding: 5px 0;
+      }
+    }
+  }
+
+  .login-block {
+    .choma-button {
+      background-color: $color_menu_items;
+      font-weight: 400;
+      border: none;
+      transition: all 400ms ease-in-out;
+
+      &:hover {
+        background-color: $color_primary;
+        cursor: pointer;
       }
     }
   }
 }
+

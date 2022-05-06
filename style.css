@@ -701,46 +701,6 @@ textarea {
 	background-position: -200% 100% !important;
 }
 
-/* Header Lines */
-.mcborder > span {
-	display: block;
-	float: left;
-	width: 10%;
-	height: 7px;
-}
-
-.mcborder > .two {
-	width: 20%;
-}
-
-.red-bg {
-	background-color: #ef456f;
-}
-
-.pink-bg {
-	background-color: #fc8294;
-}
-
-.yellow-bg {
-	background-color: #fbc75b;
-}
-
-.green-bg {
-	background-color: #5fd37d;
-}
-
-.purple-bg {
-	background-color: #8760ac;
-}
-
-.blue-bg {
-	background-color: #39a0be;
-}
-
-.mcborder > .three {
-	width: 30%;
-}
-
 /* Footer */
 footer#colophon {
 	background: #f3f3f9;
@@ -871,12 +831,14 @@ footer#colophon {
 	text-decoration: none;
 	text-transform: uppercase;
 	padding: 15px 10px;
+	font-weight: 500;
+	color: #5b5b60;
+	transition: all 400ms ease-in-out;
 }
 
 .main-navigation a:hover {
 	color: #ef456f;
 	text-decoration: none;
-	border-bottom: 2px solid;
 }
 
 .main-navigation .current_page_item > a,
@@ -884,19 +846,35 @@ footer#colophon {
 .main-navigation .current_page_ancestor > a,
 .main-navigation .current-menu-ancestor > a {
 	color: #ef456f;
-	border-bottom: 2px solid;
+}
+
+.main-navigation .fa-bars {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.main-navigation .fa-bars {
+		display: block;
+		text-align: center;
+		z-index: 999;
+		font-size: 20px;
+		transition: all 400ms ease-in-out;
+		background-color: #ef456f;
+		color: #fff;
+		width: 40px;
+		height: 40px;
+		line-height: 40px !important;
+		border-radius: 50px;
+		cursor: pointer;
+	}
 }
 
 /* Small menu. */
-.menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
+@media screen and (min-width: 768px) {
 	.main-navigation ul {
 		display: flex;
 	}
@@ -1085,7 +1063,8 @@ footer#colophon {
 	vertical-align: middle;
 	-webkit-font-smoothing: antialiased;
 	background-color: transparent;
-	color: #ef456f;
+	color: #c3c3c9;
+	transition: all 400ms ease-in-out;
 }
 
 #menu-social ul li a[href*="facebook.com"]::before {
@@ -1132,6 +1111,10 @@ footer#colophon {
 	content: '\f17e';
 }
 
+#menu-social ul li a[href*="wa.me"]::before {
+	content: '\f17e';
+}
+
 #menu-social ul li a:hover[href*="facebook.com"]::before {
 	color: #3b5998;
 }
@@ -1164,7 +1147,54 @@ header#masthead .site-branding a {
 
 header#masthead .site-branding a img.custom-logo {
 	max-width: 140px;
-	padding: 5px;
+	padding: 5px 0;
+}
+
+header#masthead .login-block .choma-button {
+	background-color: #5b5b60;
+	font-weight: 400;
+	border: none;
+	transition: all 400ms ease-in-out;
+}
+
+header#masthead .login-block .choma-button:hover {
+	background-color: #ef456f;
+	cursor: pointer;
+}
+
+/* Header Lines */
+.choma-border > span {
+	display: block;
+	float: left;
+	width: 15%;
+	height: 7px;
+}
+
+.choma-border .red-bg {
+	background-color: #ef456f;
+}
+
+.choma-border .pink-bg {
+	background-color: #fc8294;
+	width: 20%;
+}
+
+.choma-border .yellow-bg {
+	background-color: #fbc75b;
+}
+
+.choma-border .green-bg {
+	background-color: #5fd37d;
+}
+
+.choma-border .purple-bg {
+	background-color: #8760ac;
+	width: 15%;
+}
+
+.choma-border .blue-bg {
+	background-color: #39a0be;
+	width: 20%;
 }
 
 /*--------------------------------------------------------------
