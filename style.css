@@ -45,6 +45,18 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap");
+.choma-overlay {
+	background-color: rgba(27, 27, 32, 0.6);
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0.8;
+}
+
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
@@ -57,7 +69,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap");
 html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
@@ -385,10 +396,11 @@ input,
 select,
 optgroup,
 textarea {
-	color: #404040;
-	font-family: "Montserrat", sans-serif;
-	font-size: 1rem;
-	line-height: 1.5;
+	color: #777;
+	font-family: "Poppins", sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 1.5em;
 }
 
 h1,
@@ -619,8 +631,189 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
+.slider-posts {
+	overflow: hidden;
+	width: 100%;
+}
+
 .slider-posts .blog-item {
 	padding-left: 0;
+	transition: all 200ms ease-in;
+}
+
+.slider-posts .blog-item .bottom-block {
+	position: absolute;
+	bottom: 0;
+	color: #fff;
+}
+
+.slider-posts .blog-item .bottom-block span.cat {
+	background: #ef456f;
+	padding: 5px;
+	margin-bottom: 5px;
+	display: inline-block;
+	font-weight: 500;
+}
+
+.slider-posts .blog-item .bottom-block a.the-title h4 {
+	font-size: 30px;
+	font-weight: 700;
+	letter-spacing: -0.023em;
+	color: #fff;
+}
+
+.slider-posts .blog-item:hover .choma-overlay {
+	transition: all 200ms ease-in;
+	opacity: 0.3;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+	background: #f3f3f9;
+	font-size: 14px;
+}
+
+#topcontrol .fa {
+	background: #42464F none repeat scroll 0 0;
+	border-radius: 50%;
+	bottom: 40px;
+	box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+	color: #FFF;
+	font-size: 40px;
+	height: 50px;
+	line-height: 45px;
+	overflow: hidden;
+	right: 20px;
+	text-align: center;
+	transition: all 0.4s ease-in-out;
+	width: 50px;
+	z-index: 999;
+	background-size: 100% 200% !important;
+	position: relative !important;
+	background-image: linear-gradient(to bottom, #ef456f 50%, #FFF 50%) !important;
+}
+
+#topcontrol .fa:hover {
+	background: #ef456f none repeat scroll 0 0;
+	color: #ef456f;
+	text-decoration: none;
+	background: #ef456f;
+	background-position: -200% 100% !important;
+}
+
+/* Header Lines */
+.mcborder > span {
+	display: block;
+	float: left;
+	width: 10%;
+	height: 7px;
+}
+
+.mcborder > .two {
+	width: 20%;
+}
+
+.red-bg {
+	background-color: #ef456f;
+}
+
+.pink-bg {
+	background-color: #fc8294;
+}
+
+.yellow-bg {
+	background-color: #fbc75b;
+}
+
+.green-bg {
+	background-color: #5fd37d;
+}
+
+.purple-bg {
+	background-color: #8760ac;
+}
+
+.blue-bg {
+	background-color: #39a0be;
+}
+
+.mcborder > .three {
+	width: 30%;
+}
+
+/* Footer */
+footer#colophon {
+	background: #f3f3f9;
+}
+
+/* Featured Post */
+.featured-posts {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+
+.featured-posts .category-article {
+	position: relative;
+}
+
+.featured-posts .category-article .bottom-block {
+	background-color: #fff;
+	box-shadow: 0 0 15px #ddd;
+}
+
+.featured-posts .category-article .bottom-block span.cat {
+	background: #5fd37d;
+	padding: 5px;
+	color: #fff;
+	font-weight: 500;
+	position: absolute;
+	top: 10px;
+	left: 50px;
+}
+
+.featured-posts .category-article.category-health .article-story-content .the-title h4 {
+	color: #5fd37d;
+	font-weight: 500;
+}
+
+/* Popular Posts */
+.popular-posts .bottom-block {
+	background: #5fd37db8;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+@media screen and (max-width: 720px) {
+	.popular-posts .bottom-block p {
+		display: none;
+	}
+}
+
+/* Ads */
+.ad {
+	display: block;
+	background: #eee;
+	padding: 25px 0 10px;
+}
+
+.slider-posts .blog-item:first-child .bottom-block {
+	padding-left: 35px;
+}
+
+/* Images Hover */
+.category-article .article-featured-image {
+	overflow: hidden;
+}
+
+.category-article .article-featured-image img {
+	transition: all 400ms ease-in-out;
+}
+
+.category-article:hover > .article-featured-image img {
+	transform: scale(1.1);
+	filter: grayscale(100%);
 }
 
 /*--------------------------------------------------------------
@@ -967,6 +1160,11 @@ header#masthead {
 
 header#masthead .site-branding a {
 	width: 150px;
+}
+
+header#masthead .site-branding a img.custom-logo {
+	max-width: 140px;
+	padding: 5px;
 }
 
 /*--------------------------------------------------------------

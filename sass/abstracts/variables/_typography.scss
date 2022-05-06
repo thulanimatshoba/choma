@@ -5,3 +5,20 @@ $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap');
+
+$font_poppins: 'Poppins', sans-serif;
+$font_montserrat: 'Montserrat', sans-serif;
+
+
+.choma-overlay {
+  background-color: rgba(27,27,32,0.6);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.8;
+}

@@ -12,37 +12,40 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
+        <div class="mcborder">
+            <span class="red-bg"></span>
+            <span class="pink-bg two"></span>
+            <span class="yellow-bg"></span>
+            <span class="green-bg"></span>
+            <span class="purple-bg three"></span>
+            <span class="blue-bg two"></span>
+        </div>
         <div class="uk-container">
             <div class="footer-top uk-margin-medium-top uk-margin-small-bottom uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m" uk-grid>
                 <div class="uk-animation-scale-up uk-margin-bottom uk-padding-remove-left">
-                   aaaa <?php if (!dynamic_sidebar('footer-info')): endif; ?>
+                   <?php if (!dynamic_sidebar('footer-info')): endif; ?>
                 </div>
                 <div class="uk-animation-scale-up">
-                   ssss <?php if (!dynamic_sidebar('footer-nav')): endif; ?>
+                   <?php if (!dynamic_sidebar('footer-nav')): endif; ?>
                 </div>
                 <div class="uk-animation-scale-up">
-                   dddd <?php if (!dynamic_sidebar('footer-contacts')): endif; ?>
+                   <?php if (!dynamic_sidebar('footer-contacts')): endif; ?>
                 </div>
                 <div class="uk-animation-scale-up">
-                   zzzz <?php if (!dynamic_sidebar('footer-newsletter')): endif; ?>
+                   <?php if (!dynamic_sidebar('footer-newsletter')): endif; ?>
                 </div>
             </div>
         </div>
 
-        <div class="uk-container">
-            <div class="site-info">
-                <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'choma' ) ); ?>">
-                    <?php
-                    /* translators: %s: CMS name, i.e. WordPress. */
-                    printf( esc_html__( 'Proudly powered by %s', 'choma' ), 'WordPress' );
-                    ?>
-                </a>
-                <span class="sep"> | </span>
-                    <?php
-                    /* translators: 1: Theme name, 2: Theme author. */
-                    printf( esc_html__( 'Theme: %1$s by %2$s.', 'choma' ), 'choma', '<a href="http://thulanimatshoba.co.za">Thulani Matshoba</a>' );
-                    ?>
-            </div><!-- .site-info -->
+        <div id="bottom-footer">
+            <div class="uk-container uk-padding-small">
+                <div class="uk-float-left">
+                    <?php _e('All rights reserved &copy;');?> <?php echo date("Y"); echo " "; bloginfo('name'); ?>
+                </div>
+                <div class="uk-float-right">
+                    <?php printf( esc_html__( 'Developed by: %2$s', 'choma' ), 'choma', '<a title="2lanie Matshoba" target="_blank" href="http://thulanimatshoba.co.za">2lanie</a>' ); ?>
+                </div>
+            </div><!-- .uk-container -->
         </div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->

@@ -10,12 +10,16 @@
 ?>
 <div class="breadcrumbs">
     <div class="uk-container uk-padding-small">
-        <?php get_template_part( 'partials/components/breadcrumbs' ); ?>
+        <?php if ( function_exists('yoast_breadcrumb') ) {
+            yoast_breadcrumb('<p id="breadcrumbs" class="">','</p>');
+        } ?>
     </div>
 </div>
 
 <div class="uk-container">
     <article id="post-<?php the_ID(); ?>" <?php post_class('ddd'); ?>>
+        <?php choma_post_thumbnail(); ?>
+
         <header class="entry-header">
             <?php
             if ( is_singular() ) :
@@ -34,8 +38,6 @@
                 </div><!-- .entry-meta -->
             <?php endif; ?>
         </header><!-- .entry-header -->
-
-        <?php choma_post_thumbnail(); ?>
 
         <div class="entry-content">
             <?php

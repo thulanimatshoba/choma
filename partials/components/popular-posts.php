@@ -1,17 +1,18 @@
 
 <h2 class="widget-title uk-text-center uk-padding-small uk-margin-large-bottom"><?php _e( 'Featured Articles' ); ?> </h2>
 
-<div class="uk-child-width-expand@s" uk-grid uk-scrollspy="cls: uk-animation-fade; target: > .category-article; delay: 500; repeat: false">
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: push">
+    <ul class="uk-slideshow-items">
     <?php
     if (is_page()) {
-        $cat = get_cat_ID('Health'); //use page title to get a category ID
-        $posts = get_posts("cat=$cat&showposts=5");
+        $cat = get_cat_ID('Fashion & Beauty'); //use page title to get a category ID
+        $posts = get_posts("cat=$cat&showposts=4");
         $c = 0;
         if ($posts) {
             foreach ($posts as $post) :
                 setup_postdata($post);
                 $c++;?>
-                <div <?php ($c === 1 ? post_class('blog-item category-article uk-width-2-3@s featured-post') : post_class('category-article uk-width-1-3@s')); ?>>
+                <li <?php ($c === 1 ? post_class('blog-item category-article featured-post') : post_class('category-article')); ?>>
                     <div class="article-featured-image">
                         <a href="<?php the_permalink(); ?>">
                             <?php if ((function_exists('has_post_thumbnail')) && (has_post_thumbnail())) {
@@ -22,16 +23,16 @@
                         </a>
                     </div>
 
-                    <div class="bottom-block uk-padding-small">
+                    <div class="bottom-block uk-padding-small uk-transition-slide-bottom">
                         <div class="uk-meta">
                             <?php
                             $categories = get_the_category();
                             if ( ! empty( $categories ) ) {
-                                echo '<span class="cat">' . esc_html( $categories[0]->name ) . '</span>';
+                                echo '<span class="cat" uk-slideshow-parallax="x: 100,-100">' . esc_html( $categories[0]->name ) . '</span>';
                             } ?>
                             <br>
                             <span class="uk-float-left uk-margin-small-right"><?= get_the_date('d. M. Y'); ?></span>
-                            <span class="uk-margin-small-right "><i class="fa fa-eye"></i>
+                            <span class="uk-margin-small-right"><i class="fa fa-eye"></i>
                                                     <?php $views = choma_get_post_views(get_the_ID());
                                                     if (choma_get_post_views(get_the_ID()) == 1) {
                                                         printf(__('%d View', 'skinny_ninjah'), $views);
@@ -59,10 +60,46 @@
                             <p><?php echo wp_trim_excerpt(); ?></p>
                         </div>
                     </div>
-                </div>
+                </li>
             <?php endforeach;
             wp_reset_postdata();
         }
     }
     ?>
+    </ul>
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
 </div>
+
+
+<!--<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: push">-->
+<!---->
+<!--    <ul class="uk-slideshow-items">-->
+<!--        <li>-->
+<!--            <img src="images/photo.jpg" alt="" uk-cover>-->
+<!--            <div class="uk-position-center uk-position-small uk-text-center">-->
+<!--                <h2 uk-slideshow-parallax="x: 100,-100">Heading</h2>-->
+<!--                <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>-->
+<!--            </div>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <img src="images/dark.jpg" alt="" uk-cover>-->
+<!--            <div class="uk-position-center uk-position-small uk-text-center">-->
+<!--                <h2 uk-slideshow-parallax="x: 100,-100">Heading</h2>-->
+<!--                <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>-->
+<!--            </div>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <img src="images/light.jpg" alt="" uk-cover>-->
+<!--            <div class="uk-position-center uk-position-small uk-text-center">-->
+<!--                <h2 uk-slideshow-parallax="y: -50,0,0; opacity: 1,1,0">Heading</h2>-->
+<!--                <p uk-slideshow-parallax="y: 50,0,0; opacity: 1,1,0">Lorem ipsum dolor sit amet.</p>-->
+<!--            </div>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!---->
+<!--    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>-->
+<!--    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>-->
+<!---->
+<!--</div>-->
