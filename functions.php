@@ -49,7 +49,9 @@ function choma_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'choma' ),
+			'header' => esc_html__( 'Primary Menu', 'choma' ),
+            'social' => esc_html__('Social Menu', 'choma'),
+            'offcanvas' => esc_html__('Off Canvas Menu', 'choma'),
 		)
 	);
 
@@ -99,6 +101,12 @@ function choma_setup() {
 			'flex-height' => true,
 		)
 	);
+
+    /**
+     * Yoast Breadcrumbs
+     */
+    add_theme_support('yoast-seo-breadcrumbs');
+
 }
 add_action( 'after_setup_theme', 'choma_setup' );
 
@@ -120,8 +128,20 @@ add_action( 'after_setup_theme', 'choma_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function choma_widgets_init() {
+    register_sidebar(
+        [
+            'name'          => esc_html__( 'Home Page 1170x90 Ad', 'choma' ),
+            'id'            => 'home-ad1',
+            'description'   => esc_html__( 'Add widgets here.', 'choma' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        ]
+    );
+
 	register_sidebar(
-		array(
+		[
 			'name'          => esc_html__( 'Sidebar', 'choma' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'choma' ),
@@ -129,8 +149,56 @@ function choma_widgets_init() {
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
-		)
+		]
 	);
+
+    register_sidebar(
+        [
+            'name'          => esc_html__( 'Footer Info', 'choma' ),
+            'id'            => 'footer-info',
+            'description'   => esc_html__( 'Add widgets here.', 'choma' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        ]
+    );
+
+    register_sidebar(
+        [
+            'name'          => esc_html__( 'Footer Navigation', 'choma' ),
+            'id'            => 'footer-nav',
+            'description'   => esc_html__( 'Add widgets here.', 'choma' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        ]
+    );
+
+    register_sidebar(
+        [
+            'name'          => esc_html__( 'Footer Contacts', 'choma' ),
+            'id'            => 'footer-contacts',
+            'description'   => esc_html__( 'Add widgets here.', 'choma' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        ]
+    );
+
+    register_sidebar(
+        [
+            'name'          => esc_html__( 'Footer Newsletter', 'choma' ),
+            'id'            => 'footer-newsletter',
+            'description'   => esc_html__( 'Add widgets here.', 'choma' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        ]
+    );
 }
 add_action( 'widgets_init', 'choma_widgets_init' );
 
@@ -142,7 +210,9 @@ function choma_scripts() {
     wp_enqueue_style('choma-uikit', get_template_directory_uri() . '/uikit.css', [], CHOMA_VERSION);
 	wp_style_add_data( 'choma-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'choma-navigation', get_template_directory_uri() . '/js/navigation.js', array(), CHOMA_VERSION, true );
+    wp_enqueue_style('font-awesome', '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+    wp_enqueue_script( 'choma-navigation', get_template_directory_uri() . '/js/navigation.js', array(), CHOMA_VERSION, true );
+    wp_enqueue_script( 'choma', get_template_directory_uri() . '/js/choma.js', array(), CHOMA_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -171,6 +241,11 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Shortcodes.
+ */
+require get_template_directory() . '/inc/shortcodes.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
@@ -180,6 +255,61 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /**
  * Load WooCommerce compatibility file.
  */
-if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
-}
+//if ( class_exists( 'WooCommerce' ) ) {
+//	require get_template_directory() . '/inc/woocommerce.php';
+//}
+
+
+
+
+
+//Todo: move this to filters
+
+//Track Post Views
+if (!function_exists('choma_get_post_views')) :
+
+    function choma_get_post_views($postID)
+    {
+        $count_key = 'post_views_count';
+        $count = get_post_meta($postID, $count_key, true);
+        if ($count == '') {
+            delete_post_meta($postID, $count_key);
+            add_post_meta($postID, $count_key, '0');
+            return 0;
+        }
+        return $count;
+    }
+endif;
+
+// function to count views.
+if (!function_exists('choma_update_post_views')) :
+
+    function choma_update_post_views($postID)
+    {
+        if (!current_user_can('administrator')) {
+            $user_ip = $_SERVER['REMOTE_ADDR']; //retrieve the current IP address of the visitor
+            $key = $user_ip . 'x' . $postID; //combine post ID & IP to form unique key
+            $value = array($user_ip, $postID); // store post ID & IP as separate values (see note)
+            $visited = get_transient($key); //get transient and store in variable
+
+            //check to see if the Post ID/IP ($key) address is currently stored as a transient
+            if (false === ($visited)) {
+
+                //store the unique key, Post ID & IP address for 12 hours if it does not exist
+                set_transient($key, $value, 60 * 60 * 12);
+
+                // now run post views function
+                $count_key = 'post_views_count';
+                $count = get_post_meta($postID, $count_key, true);
+                if ($count == '') {
+                    $count = 0;
+                    delete_post_meta($postID, $count_key);
+                    add_post_meta($postID, $count_key, '0');
+                } else {
+                    $count++;
+                    update_post_meta($postID, $count_key, $count);
+                }
+            }
+        }
+    }
+endif;
