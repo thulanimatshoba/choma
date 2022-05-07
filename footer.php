@@ -52,7 +52,9 @@
 
 <?php wp_footer(); ?>
 
-<?php get_template_part('partials/modals/login-register'); ?>
+<?php
+    get_template_part('partials/modals/login-register');
+    get_template_part('template-parts/search/search'); ?>
 
 <script src="//cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit-icons.min.js"></script>

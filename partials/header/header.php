@@ -5,6 +5,7 @@
         <div class="uk-container uk-padding-small uk-padding-remove-left uk-padding-remove-right">
             <div class="socials uk-float-right">
                 <?php get_template_part('partials/menus/social', 'menu'); ?>
+                <a class="uk-float-left choma-search" href="#search-modal" uk-search-icon uk-toggle></a>
             </div>
         </div>
     </div>
@@ -14,23 +15,13 @@
                <?php get_template_part('partials/header/branding'); ?>
             </div><!-- .site-branding -->
 
-            <div class="uk-navbar-right">
+            <div class="uk-navbar-right user-sign-in">
                 <div class="login-block">
-                    <?php
-                    if (!is_user_logged_in()) : ?>
-                    <button class="uk-button-small uk-button-primary choma-button" uk-toggle="target: #ninjah-login-modal"><i class="fa fa-user"></i> Sign in</button>
-                    <?php else :
-                    $current_user = wp_get_current_user(); ?>
-                    <div class="uk-float-left">
-                        <button class="uk-button-small uk-button-primary choma-button"><i class="fa fa-user"></i> Profile</button>
-                    </div>
-                    <?php endif;?>
-                    <a class="" href="#search-modal" uk-search-icon uk-toggle></a>
-                    <?php get_template_part('template-parts/search/search'); ?>
+                    <?php get_template_part('partials/header/login','button'); ?>
                 </div>
             </div>
 
-            <div class="uk-navbar-center">
+            <div class="uk-navbar-center header-nav-container">
                 <nav id="site-navigation" class="main-navigation">
                     <i class="fa fa-bars" aria-hidden="true" uk-toggle="target: #offcanvas-push"></i>
                     <?php get_template_part('partials/menus/header', 'menu'); ?>

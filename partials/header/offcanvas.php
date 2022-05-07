@@ -2,8 +2,11 @@
     <div class="uk-offcanvas-bar">
         <button class="uk-offcanvas-close" type="button" uk-close></button>
         <?php
-            get_template_part('partials/header/branding');
-            get_template_part('partials/menus/offcanvas', 'menu'); ?>
+            get_template_part('partials/header/branding'); ?>
+            <div class="login-block">
+                <?php get_template_part('partials/header/login','button'); ?>
+            </div>
+            <?php get_template_part('partials/menus/offcanvas', 'menu'); ?>
 
         <hr class="uk-divider-icon">
 
