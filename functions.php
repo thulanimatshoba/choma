@@ -203,22 +203,9 @@ function choma_widgets_init() {
 add_action( 'widgets_init', 'choma_widgets_init' );
 
 /**
- * Enqueue scripts and styles.
+ * Assets.
  */
-function choma_scripts() {
-	wp_enqueue_style( 'choma-style', get_stylesheet_uri(), array(), CHOMA_VERSION );
-    wp_enqueue_style('choma-uikit', get_template_directory_uri() . '/uikit.css', [], CHOMA_VERSION);
-	wp_style_add_data( 'choma-style', 'rtl', 'replace' );
-
-    wp_enqueue_style('font-awesome', '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
-    wp_enqueue_script( 'choma-navigation', get_template_directory_uri() . '/js/navigation.js', array(), CHOMA_VERSION, true );
-    wp_enqueue_script( 'choma', get_template_directory_uri() . '/js/choma.js', array(), CHOMA_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'choma_scripts' );
+require get_template_directory() . '/inc/assets.php';
 
 /**
  * Implement the Custom Header feature.
@@ -239,6 +226,11 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Post Meta.
+ */
+require get_template_directory() . '/inc/post-meta.php';
 
 /**
  * Shortcodes.

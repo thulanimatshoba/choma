@@ -1,5 +1,5 @@
 
-<h2 class="widget-title uk-text-center uk-padding-small uk-margin-large-bottom"><?php _e( 'Featured Articles' ); ?> </h2>
+<h2 class="widget-title uk-text-center uk-padding-small uk-margin-small-bottom"><?php _e( 'Featured Articles' ); ?> </h2>
 
 <div class="uk-child-width-expand@s" uk-grid uk-scrollspy="cls: uk-animation-fade; target: > .category-article; delay: 500; repeat: false">
     <?php

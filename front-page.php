@@ -28,7 +28,7 @@ get_header();
 
 
         <div class="featured-posts">
-            <div class="uk-container uk-padding-large">
+            <div class="uk-container uk-padding-small">
                 <?php get_template_part('partials/components/featured', 'posts'); ?>
             </div>
         </div>
@@ -41,6 +41,12 @@ get_header();
         <div class="popular-posts">
             <div class="uk-container uk-padding-large">
                 <?php get_template_part('partials/components/popular', 'posts'); ?>
+            </div>
+        </div>
+
+        <div class="partners-section">
+            <div class="uk-container uk-padding-small">
+                <?php get_template_part('partials/components/home','partners'); ?>
             </div>
         </div>
 
