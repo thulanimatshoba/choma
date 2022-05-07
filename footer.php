@@ -12,17 +12,10 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-        <div class="mcborder">
-            <span class="red-bg"></span>
-            <span class="pink-bg two"></span>
-            <span class="yellow-bg"></span>
-            <span class="green-bg"></span>
-            <span class="purple-bg three"></span>
-            <span class="blue-bg two"></span>
-        </div>
+        <?php get_template_part('partials/components/striped-border'); ?>
         <div class="uk-container">
             <div class="footer-top uk-margin-medium-top uk-margin-small-bottom uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m" uk-grid>
-                <div class="uk-animation-scale-up uk-margin-bottom uk-padding-remove-left">
+                <div class="uk-animation-scale-up">
                    <?php if (!dynamic_sidebar('footer-info')): endif; ?>
                 </div>
                 <div class="uk-animation-scale-up">

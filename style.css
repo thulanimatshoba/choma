@@ -720,11 +720,6 @@ textarea {
 	background-position: -200% 100% !important;
 }
 
-/* Footer */
-footer#colophon {
-	background: #f3f3f9;
-}
-
 /* Featured Post */
 .featured-posts {
 	position: relative;
@@ -1250,6 +1245,65 @@ header#masthead .header-nav-container {
 
 #offcanvas-push .offcanvas-menu {
 	margin-top: 60px !important;
+}
+
+/* Footer
+--------------------------------------------- */
+footer#colophon {
+	background: #f3f3f9;
+	display: block;
+	width: 100%;
+	overflow: hidden;
+}
+
+footer#colophon .footer-top figure img {
+	padding: 10px;
+	max-width: 200px;
+}
+
+footer#colophon .footer-top .widget h2 {
+	font-size: 20px;
+	font-weight: 500;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+}
+
+footer#colophon .footer-top .widget .wp-block-latest-posts a:hover {
+	color: #ef456f;
+	text-decoration: none;
+}
+
+footer#colophon .footer-top .widget .menu {
+	position: relative;
+	margin: 0;
+}
+
+footer#colophon .footer-top .widget .menu li {
+	list-style: none;
+}
+
+footer#colophon .footer-top .widget .menu li a {
+	display: block;
+	padding: 10px 0;
+}
+
+footer#colophon .footer-top .widget .menu li a::before {
+	content: "\f054";
+	font-family: "FontAwesome";
+	position: absolute;
+	left: 0;
+}
+
+footer#colophon .footer-top .widget .menu li a:hover {
+	color: #ef456f;
+	text-decoration: none;
+}
+
+footer#colophon #bottom-footer {
+	background: #ef456f;
+	color: #fff;
+	font-weight: 300;
+	font-size: 15px;
 }
 
 /* Header Lines */
