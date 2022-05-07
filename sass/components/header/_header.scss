@@ -30,3 +30,19 @@ header#masthead {
   }
 }
 
+#offcanvas-push {
+  a.custom-logo-link {
+    margin-top: 30px;
+  }
+
+  #menu-off-canvas-menu {
+    li {
+      a {
+        &:hover {
+          color: $color_primary;
+        }
+      }
+    }
+  }
+}
+

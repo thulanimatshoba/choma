@@ -529,6 +529,7 @@ table {
 --------------------------------------------- */
 a {
 	color: #4169e1;
+	transition: all 400ms ease-in-out;
 }
 
 a:visited {
@@ -1160,6 +1161,14 @@ header#masthead .login-block .choma-button {
 header#masthead .login-block .choma-button:hover {
 	background-color: #ef456f;
 	cursor: pointer;
+}
+
+#offcanvas-push a.custom-logo-link {
+	margin-top: 30px;
+}
+
+#offcanvas-push #menu-off-canvas-menu li a:hover {
+	color: #ef456f;
 }
 
 /* Header Lines */
