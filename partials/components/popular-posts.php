@@ -5,7 +5,7 @@
     <ul class="uk-slideshow-items">
     <?php
     if (is_page()) {
-        $cat = get_cat_ID('Fashion & Beauty'); //use page title to get a category ID
+        $cat = get_cat_ID('Inspiration'); //use page title to get a category ID
         $posts = get_posts("cat=$cat&showposts=4");
         $c = 0;
         if ($posts) {
