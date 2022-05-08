@@ -14,7 +14,7 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-
+            choma_update_post_views(get_the_ID());
 			get_template_part( 'template-parts/content', get_post_type() ); ?>
 
         <div class="uk-container">
