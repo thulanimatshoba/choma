@@ -1,0 +1,148 @@
+.slider-posts {
+  overflow: hidden;
+  width: 100%;
+
+  .blog-item {
+    padding-left: 0;
+    transition: all 200ms ease-in;
+
+    .bottom-block {
+      position: absolute;
+      bottom: 0;
+      color: $color__background-body;
+
+      span.cat {
+        background: $color_primary;
+        padding: 5px;
+        margin-bottom: 5px;
+        display: inline-block;
+        font-weight: 500;
+      }
+
+      a.the-title h4 {
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: -0.023em;
+        color: $color__background-body;
+      }
+    }
+
+    &:hover .choma-overlay {
+      transition: all 200ms ease-in;
+      opacity: 0.3;
+    }
+  }
+}
+
+/* Breadcrumbs */
+
+.breadcrumbs {
+  background: #f3f3f9;
+  font-size: 14px;
+}
+
+#topcontrol .fa {
+  background: #42464F none repeat scroll 0 0;
+  border-radius: 50%;
+  bottom: 40px;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: #FFF;
+  font-size: 40px;
+  height: 50px;
+  line-height: 45px;
+  overflow: hidden;
+  right: 20px;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+  width: 50px;
+  z-index: 999;
+  background-size: 100% 200% !important;
+  position: relative !important;
+  background-image: linear-gradient(to bottom, $color_primary 50%, #FFF 50%) !important;
+}
+
+#topcontrol .fa:hover {
+  background: $color_primary none repeat scroll 0 0;
+  color: $color_primary;
+  text-decoration: none;
+  background: $color_primary;
+  background-position: -200% 100% !important;
+}
+
+/* Featured Post */
+.featured-posts {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  .category-article {
+    position: relative;
+
+    .bottom-block {
+      background-color: #fff;
+      box-shadow: 0 0 15px #ddd;
+      span.cat {
+        background: #5fd37d;
+        padding: 5px;
+        color: #fff;
+        font-weight: 500;
+        position: absolute;
+        top: 10px;
+        left: 50px;
+      }
+    }
+
+    &.category-health {
+      .article-story-content {
+        .the-title h4 {
+          color: #5fd37d;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+/* Popular Posts */
+.popular-posts {
+  .bottom-block {
+    background: #5fd37db8;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    p {
+      @media screen and (max-width: 720px) {
+        display: none;
+      }
+    }
+  }
+}
+
+/* Ads */
+.ad {
+  display: block;
+  background: #eee;
+  padding: 25px 0 10px;
+}
+
+.slider-posts .blog-item:first-child .bottom-block {
+  padding-left: 35px;
+}
+
+
+/* Images Hover */
+.category-article {
+  .article-featured-image {
+    overflow: hidden;
+
+    img {
+      transition: all 400ms ease-in-out;
+    }
+  }
+
+  &:hover > .article-featured-image img {
+    transform: scale(1.1);
+    filter: grayscale(100%);
+  }
+}

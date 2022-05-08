@@ -46,6 +46,18 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap");
+
+.choma-overlay {
+	background-color: rgba(27, 27, 32, 0.6);
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0.8;
+}
 
 /*--------------------------------------------------------------
 # Generic
@@ -399,10 +411,11 @@ input,
 select,
 optgroup,
 textarea {
-	color: #404040;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	font-size: 1rem;
-	line-height: 1.5;
+	color: #777;
+	font-family: "Poppins", sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 1.5em;
 }
 
 h1,
@@ -473,7 +486,6 @@ body {
 }
 
 hr {
-	background-color: #ccc;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
@@ -531,6 +543,7 @@ table {
 --------------------------------------------- */
 a {
 	color: #4169e1;
+	transition: all 400ms ease-in-out;
 }
 
 a:visited {
@@ -637,6 +650,146 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
+.slider-posts {
+	overflow: hidden;
+	width: 100%;
+}
+
+.slider-posts .blog-item {
+	padding-left: 0;
+	transition: all 200ms ease-in;
+}
+
+.slider-posts .blog-item .bottom-block {
+	position: absolute;
+	bottom: 0;
+	color: #fff;
+}
+
+.slider-posts .blog-item .bottom-block span.cat {
+	background: #ef456f;
+	padding: 5px;
+	margin-bottom: 5px;
+	display: inline-block;
+	font-weight: 500;
+}
+
+.slider-posts .blog-item .bottom-block a.the-title h4 {
+	font-size: 30px;
+	font-weight: 700;
+	letter-spacing: -0.023em;
+	color: #fff;
+}
+
+.slider-posts .blog-item:hover .choma-overlay {
+	transition: all 200ms ease-in;
+	opacity: 0.3;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+	background: #f3f3f9;
+	font-size: 14px;
+}
+
+#topcontrol .fa {
+	background: #42464f none repeat scroll 0 0;
+	border-radius: 50%;
+	bottom: 40px;
+	box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
+	color: #fff;
+	font-size: 40px;
+	height: 50px;
+	line-height: 45px;
+	overflow: hidden;
+	right: 20px;
+	text-align: center;
+	transition: all 0.4s ease-in-out;
+	width: 50px;
+	z-index: 999;
+	background-size: 100% 200% !important;
+	position: relative !important;
+	background-image: linear-gradient(to bottom, #ef456f 50%, #fff 50%) !important;
+}
+
+#topcontrol .fa:hover {
+	background: #ef456f none repeat scroll 0 0;
+	color: #ef456f;
+	text-decoration: none;
+	background: #ef456f;
+	background-position: -200% 100% !important;
+}
+
+/* Featured Post */
+.featured-posts {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+
+.featured-posts .category-article {
+	position: relative;
+}
+
+.featured-posts .category-article .bottom-block {
+	background-color: #fff;
+	box-shadow: 0 0 15px #ddd;
+}
+
+.featured-posts .category-article .bottom-block span.cat {
+	background: #5fd37d;
+	padding: 5px;
+	color: #fff;
+	font-weight: 500;
+	position: absolute;
+	top: 10px;
+	left: 50px;
+}
+
+.featured-posts .category-article.category-health .article-story-content .the-title h4 {
+	color: #5fd37d;
+	font-weight: 500;
+}
+
+/* Popular Posts */
+.popular-posts .bottom-block {
+	background: #5fd37db8;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+@media screen and (max-width: 720px) {
+
+	.popular-posts .bottom-block p {
+		display: none;
+	}
+}
+
+/* Ads */
+.ad {
+	display: block;
+	background: #eee;
+	padding: 25px 0 10px;
+}
+
+.slider-posts .blog-item:first-child .bottom-block {
+	padding-left: 35px;
+}
+
+/* Images Hover */
+.category-article .article-featured-image {
+	overflow: hidden;
+}
+
+.category-article .article-featured-image img {
+	transition: all 400ms ease-in-out;
+}
+
+.category-article:hover > .article-featured-image img {
+	transform: scale(1.1);
+	filter: grayscale(100%);
+}
 
 /*--------------------------------------------------------------
 # Components
@@ -692,19 +845,52 @@ textarea {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+	text-transform: uppercase;
+	padding: 15px 10px;
+	font-weight: 500;
+	color: #5b5b60;
+	transition: all 400ms ease-in-out;
+}
+
+.main-navigation a:hover {
+	color: #ef456f;
+	text-decoration: none;
+}
+
+.main-navigation .current_page_item > a,
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_ancestor > a,
+.main-navigation .current-menu-ancestor > a {
+	color: #ef456f;
+}
+
+.main-navigation .fa-bars {
+	display: none;
+}
+
+@media (max-width: 769px) {
+
+	.main-navigation .fa-bars {
+		display: block;
+		text-align: center;
+		background-color: #ef456f;
+		color: #fff;
+		width: 35px;
+		height: 28px;
+		line-height: 28px !important;
+		border-radius: 3px;
+		cursor: pointer;
+		position: absolute;
+		bottom: -12px;
+	}
 }
 
 /* Small menu. */
-.menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
-
-	.menu-toggle {
-		display: none;
-	}
+@media screen and (min-width: 769px) {
 
 	.main-navigation ul {
 		display: flex;
@@ -869,6 +1055,280 @@ textarea {
 
 .gallery-caption {
 	display: block;
+}
+
+/* Social Menu
+--------------------------------------------- */
+#menu-social ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#menu-social ul li {
+	display: inline-block;
+}
+
+#menu-social ul li a {
+	padding-top: 0;
+}
+
+#menu-social ul li a::before {
+	content: "\f408";
+	display: inline-block;
+	padding: 0 5px;
+	font-family: "FontAwesome";
+	font-size: 25px;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+	background-color: transparent;
+	color: #c3c3c9;
+	transition: all 400ms ease-in-out;
+}
+
+#menu-social ul li a[href*="facebook.com"]::before {
+	content: "\f082";
+}
+
+#menu-social ul li a[href*="twitter.com"]::before {
+	content: "\f099";
+}
+
+#menu-social ul li a[href*="plus.google.com"]::before {
+	content: "\f0d4";
+}
+
+#menu-social ul li a[href*="pinterest.com"]::before {
+	content: "\f0d3";
+}
+
+#menu-social ul li a[href*="youtube.com"]::before {
+	content: "\f167";
+}
+
+#menu-social ul li a[href*="vimeo.com"]::before {
+	content: "\f194";
+}
+
+#menu-social ul li a[href*="instagram.com"]::before {
+	content: "\f16d";
+}
+
+#menu-social ul li a[href*="linkedin.com"]::before {
+	content: "\f08c";
+}
+
+#menu-social ul li a[href*="rss.com"]::before {
+	content: "\f143";
+}
+
+#menu-social ul li a[href*="dropbox.com"]::before {
+	content: "\f16b";
+}
+
+#menu-social ul li a[href*="skype.com"]::before {
+	content: "\f17e";
+}
+
+#menu-social ul li a[href*="wa.me"]::before {
+	content: "\f17e";
+}
+
+#menu-social ul li a:hover[href*="facebook.com"]::before {
+	color: #3b5998;
+}
+
+#menu-social ul li a:hover[href*="twitter.com"]::before {
+	color: #3cf;
+}
+
+#menu-social ul li a:hover[href*="instagram.com"]::before {
+	color: #369;
+}
+
+#menu-social ul li a:hover[href*="youtube.com"]::before {
+	color: #c4302b;
+}
+
+/* Header
+--------------------------------------------- */
+.top-header {
+	border-bottom: 1px solid #ccc;
+}
+
+.top-header .choma-search {
+	color: #c3c3c9;
+	padding: 0 5px;
+}
+
+header#masthead {
+	border-bottom: 1px solid #ccc;
+}
+
+header#masthead .site-branding a {
+	width: 150px;
+}
+
+header#masthead .site-branding a img.custom-logo {
+	max-width: 140px;
+	padding: 5px 0;
+}
+
+header#masthead .login-block .choma-button {
+	background-color: #5b5b60;
+	font-weight: 400;
+	transition: all 400ms ease-in-out;
+	border: 1px solid;
+}
+
+header#masthead .login-block .choma-button:hover {
+	background-color: transparent;
+	color: #ef456f;
+	cursor: pointer;
+}
+
+header#masthead .header-nav-container {
+	top: 53%;
+}
+
+@media (max-width: 769px) {
+
+	header#masthead .header-nav-container {
+		left: 90%;
+	}
+}
+
+@media (max-width: 400px) {
+
+	header#masthead .header-nav-container {
+		padding-right: 10px;
+	}
+}
+
+@media (max-width: 769px) {
+
+	header#masthead .user-sign-in {
+		display: none;
+	}
+}
+
+#offcanvas-push a.custom-logo-link {
+	margin-top: 30px;
+}
+
+#offcanvas-push #menu-off-canvas-menu li a:hover {
+	color: #ef456f;
+}
+
+#offcanvas-push .login-block {
+	display: block;
+	width: 100%;
+	margin: 15px 0;
+}
+
+#offcanvas-push .login-block .choma-button {
+	border: #ef456f 1px solid;
+	background-color: transparent !important;
+	color: #ef456f !important;
+	font-weight: 500;
+}
+
+#offcanvas-push .offcanvas-menu {
+	margin-top: 60px !important;
+}
+
+/* Footer
+--------------------------------------------- */
+footer#colophon {
+	background: #f3f3f9;
+	display: block;
+	width: 100%;
+	overflow: hidden;
+}
+
+footer#colophon .footer-top figure img {
+	padding: 10px;
+	max-width: 200px;
+}
+
+footer#colophon .footer-top .widget h2 {
+	font-size: 20px;
+	font-weight: 500;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+}
+
+footer#colophon .footer-top .widget .wp-block-latest-posts a:hover {
+	color: #ef456f;
+	text-decoration: none;
+}
+
+footer#colophon .footer-top .widget .menu {
+	position: relative;
+	margin: 0;
+}
+
+footer#colophon .footer-top .widget .menu li {
+	list-style: none;
+}
+
+footer#colophon .footer-top .widget .menu li a {
+	display: block;
+	padding: 10px 0;
+}
+
+footer#colophon .footer-top .widget .menu li a::before {
+	content: "\f054";
+	font-family: "FontAwesome";
+	position: absolute;
+	left: 0;
+}
+
+footer#colophon .footer-top .widget .menu li a:hover {
+	color: #ef456f;
+	text-decoration: none;
+}
+
+footer#colophon #bottom-footer {
+	background: #ef456f;
+	color: #fff;
+	font-weight: 300;
+	font-size: 15px;
+}
+
+/* Header Lines */
+.choma-border > span {
+	display: block;
+	float: left;
+	width: 15%;
+	height: 7px;
+}
+
+.choma-border .red-bg {
+	background-color: #ef456f;
+}
+
+.choma-border .pink-bg {
+	background-color: #fc8294;
+	width: 20%;
+}
+
+.choma-border .yellow-bg {
+	background-color: #fbc75b;
+}
+
+.choma-border .green-bg {
+	background-color: #5fd37d;
+}
+
+.choma-border .purple-bg {
+	background-color: #8760ac;
+	width: 15%;
+}
+
+.choma-border .blue-bg {
+	background-color: #39a0be;
+	width: 20%;
 }
 
 /*--------------------------------------------------------------

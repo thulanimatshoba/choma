@@ -1,0 +1,63 @@
+footer#colophon {
+  background: #f3f3f9;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+
+  .footer-top {
+    figure {
+      img {
+        padding: 10px;
+        max-width: 200px;
+      }
+    }
+    .widget {
+      h2 {
+        font-size: 20px;
+        font-weight: 500;
+        border-bottom: 1px solid $color_light_grey;
+        padding-bottom: 10px;
+      }
+
+      .wp-block-latest-posts {
+        a {
+          &:hover {
+            color: $color_primary;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .menu {
+        position: relative;
+        margin: 0;
+        li {
+          list-style: none;
+          a {
+            display: block;
+            padding: 10px 0;
+
+            &::before {
+              content: '\f054';
+              font-family: 'FontAwesome';
+              position: absolute;
+              left: 0;
+            }
+
+            &:hover {
+              color: $color_primary;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #bottom-footer {
+    background: $color_primary;
+    color: #fff;
+    font-weight: 300;
+    font-size: 15px;
+  }
+}
