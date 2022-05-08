@@ -1,6 +1,6 @@
 <div uk-slider="autoplay: true; autoplay-interval: 9000">
     <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
-        <div class="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-3@m uk-grid">
+        <div class="home-top-slider uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-3@m uk-grid">
             <?php
             if (is_page()) {
                 $cat = get_cat_ID('Fashion & Beauty'); //use page title to get a category ID

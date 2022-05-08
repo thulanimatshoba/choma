@@ -655,6 +655,10 @@ textarea {
 	width: 100%;
 }
 
+.slider-posts .home-top-slider {
+	margin-left: 0;
+}
+
 .slider-posts .blog-item {
 	padding-left: 0;
 	transition: all 200ms ease-in;
