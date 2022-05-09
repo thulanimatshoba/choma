@@ -44,18 +44,9 @@ get_header();
             </div>
         </div>
 
-        <div class="uk-container">
-
-            <div class="uk-child-width-expand@s uk-text-center" uk-grid="parallax: 150">
-                <div>
-                    <div class="uk-card uk-card-default uk-card-body uk-grid-margin">Item</div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-default uk-card-body uk-grid-margin">Item</div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-default uk-card-body uk-grid-margin">Item</div>
-                </div>
+        <div class="popular-posts">
+            <div class="uk-container uk-padding-small">
+                <?php get_template_part('partials/components/home', 'partners'); ?>
             </div>
         </div>
 
