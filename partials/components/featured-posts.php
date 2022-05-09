@@ -59,6 +59,12 @@
                             <p><?php echo wp_trim_excerpt(); ?></p>
                         </div>
                     </div>
+                    <?php
+                        $post_counter = (!isset($post_counter) || $post_counter === null) ? 1 : ++$post_counter;
+                        $tf_dfp_config_count = 2; //Make configurable
+                        if ($post_counter === $tf_dfp_config_count) {
+                            get_template_part('partials/components/newsletter-signup', 'form');
+                        } ?>
                 </div>
             <?php endforeach;
             wp_reset_postdata();

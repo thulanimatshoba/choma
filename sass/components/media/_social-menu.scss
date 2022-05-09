@@ -68,7 +68,11 @@
         }
 
         &[href*="wa.me"]::before {
-          content: '\f17e';
+          content: '\f232';
+        }
+
+        &:hover[href*="wa.me"]::before {
+          color: #25D366;
         }
 
         &:hover[href*="facebook.com"]::before {
