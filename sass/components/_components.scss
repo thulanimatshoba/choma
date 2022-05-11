@@ -1,42 +1,12 @@
-/* Navigation
---------------------------------------------- */
-@import "navigation/navigation";
 
-/* Posts and pages
---------------------------------------------- */
-@import "content/posts-and-pages";
-
-/* Comments
---------------------------------------------- */
-@import "comments/comments";
-
-/* Widgets
---------------------------------------------- */
-@import "widgets/widgets";
-
-/* Media
---------------------------------------------- */
+@import "article-page";
+@import "navigation";
+@import "posts-and-pages";
+@import "comments";
 @import "media/media";
-
-/* Captions
---------------------------------------------- */
-@import "media/captions";
-
-/* Galleries
---------------------------------------------- */
-@import "media/galleries";
-
-/* Social Menu
---------------------------------------------- */
 @import "media/social-menu";
-
-/* Header
---------------------------------------------- */
-@import "header/header";
-
-/* Footer
---------------------------------------------- */
-@import "footer/footer";
+@import "header";
+@import "footer";
 
 /* Header Lines */
 .choma-border {

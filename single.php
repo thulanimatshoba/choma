@@ -9,13 +9,19 @@
 
 get_header();
 ?>
-
+    <div class="breadcrumbs">
+        <div class="uk-container uk-padding-small">
+            <?php if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb('<p id="breadcrumbs" class="">','</p>');
+            } ?>
+        </div>
+    </div>
 	<main id="primary" class="site-main">
 		<?php
 		while ( have_posts() ) :
 			the_post();
             choma_update_post_views(get_the_ID());
-			get_template_part( 'template-parts/content', get_post_type() ); ?>
+			get_template_part( 'template-parts/pages/content', 'article' ); ?>
 
         <div class="uk-container">
             <?php
