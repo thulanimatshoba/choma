@@ -25,7 +25,7 @@
                    <?php if (!dynamic_sidebar('footer-contacts')): endif; ?>
                 </div>
                 <div class="uk-animation-scale-up">
-                   <?php if (!dynamic_sidebar('footer-newsletter')): endif; ?>
+                   <?php get_template_part('partials/components/newsletter-signup', 'form'); ?>
                 </div>
             </div>
         </div>

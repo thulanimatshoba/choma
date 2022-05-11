@@ -23,4 +23,5 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open();
+get_template_part('partials/components/preloader');
 get_template_part('partials/header/header'); ?>
